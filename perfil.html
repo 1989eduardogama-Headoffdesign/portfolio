@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TDFWC65T');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Perfil — Preview</title>
+<style>
+  :root{
+    --blue:#0B63E5;
+    --blue-soft:#F0F5FF;
+    --teal:#0F766E;
+    --ink:#111111;
+    --ink-900:#061C3D;
+    --gray-700:#42526B;
+    --gray:#666666;
+    --border:#E6E6E6;
+    --bg:#FAFAF8;
+    --white:#FFFFFF;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',sans-serif;}
+
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:20;
+    background:rgba(255,255,255,0.4);
+    backdrop-filter:blur(16px) saturate(180%);
+    -webkit-backdrop-filter:blur(16px) saturate(180%);
+    border-bottom:1px solid rgba(255,255,255,0.5);
+    box-shadow:0 8px 32px rgba(6,28,61,0.08);
+    padding:20px clamp(20px,5vw,64px);
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .top-gradient{
+    position:absolute;top:0;left:0;right:0;height:480px;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(55% 50% at 15% 0%, rgba(11,99,229,0.28) 0%, transparent 65%),
+      radial-gradient(50% 45% at 85% 5%, rgba(117,52,255,0.24) 0%, transparent 65%),
+      radial-gradient(55% 50% at 50% 100%, rgba(242,73,200,0.16) 0%, transparent 65%);
+    -webkit-mask-image:linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+    mask-image:linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+  }
+  .top-gradient::after{
+    content:"";position:absolute;top:0;left:-10%;width:75%;height:100%;
+    background-image:url("images/fondo-textura.svg");
+    background-repeat:no-repeat;background-position:left top;background-size:120% auto;
+    opacity:0.4;
+  }
+  .float-icon{
+    position:absolute;background:#fff;border-radius:999px;
+    box-shadow:0 4px 18px rgba(6,28,61,0.1);
+    display:flex;align-items:center;justify-content:center;
+    z-index:2;padding:11px;
+  }
+  .float-icon img{width:100%;height:100%;object-fit:contain}
+  .logo{font-weight:700;font-size:20px;color:var(--blue)}
+  nav{display:flex;align-items:center;gap:32px}
+  nav a{font-size:14px;font-weight:500;color:var(--gray);text-decoration:none}
+  nav a.active{color:var(--blue);font-weight:700}
+  .cta-group{display:flex;align-items:center;gap:12px}
+  .btn-text{font-size:13px;font-weight:600;color:var(--ink);text-decoration:none}
+  .btn-primary{background:var(--blue);color:#fff;font-size:13px;font-weight:600;border:none;border-radius:8px;padding:8px 16px;cursor:pointer;text-decoration:none;display:inline-block}
+
+  main{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:calc(73px + 88px) clamp(20px,5vw,64px) 96px}
+
+  .hero{display:flex;gap:56px;align-items:flex-start;margin-bottom:112px}
+  .photo-stack{position:relative;width:140px;height:140px;flex-shrink:0}
+  .photo-stack .ph{position:absolute;width:110px;height:110px;border-radius:50%;background:var(--blue-soft);border:1px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--gray)}
+  .photo-stack .ph:nth-child(1){top:0;left:20px;z-index:3}
+  .photo-stack .ph:nth-child(2){top:14px;left:0;z-index:2;opacity:.6}
+  .photo-stack .ph:nth-child(3){top:24px;left:34px;z-index:1;opacity:.4}
+  .hero-text{flex:1}
+  .eyebrow{font-size:12px;font-weight:600;color:var(--blue);letter-spacing:0.6px;margin:0 0 12px}
+  .hero-text h1{font-size:28px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.18}
+  .hero-text p{font-size:16px;line-height:1.5;color:var(--ink);margin:0;max-width:763px}
+  .hero-text p .lead{color:var(--blue);font-weight:700}
+
+  section{margin-bottom:104px}
+  .sec-eyebrow{font-size:12px;font-weight:600;color:var(--blue);letter-spacing:0.6px;text-transform:uppercase;margin:0 0 8px}
+  .sec-title{font-size:34px;font-weight:700;color:var(--ink);line-height:1.18;margin:0 0 12px}
+  .sec-sub{font-size:16px;color:var(--gray);line-height:1.5;max-width:760px;margin:0 0 40px}
+
+  .cards-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:44px 40px;transition:box-shadow .2s ease,border-color .2s ease}
+  .card:hover{box-shadow:0 12px 28px rgba(6,28,61,0.12);border-color:transparent}
+  .card h3{font-size:24px;font-weight:500;color:var(--ink-900);margin:0 0 12px;transition:color .2s ease}
+  .card:hover h3{color:#007AFF}
+  .card p{font-size:16px;color:var(--gray-700);line-height:1.5;margin:0}
+
+  .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .fcard{border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:22px}
+  .fcard .icon{width:80px;height:80px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:32px;background:rgba(255,255,255,0.6)}
+  .fcard h4{font-size:14px;font-weight:500;color:var(--ink-900);margin:0}
+  .fcard p{font-size:10px;color:var(--gray-700);line-height:1.5;margin:0}
+  .fcard.c1{background:var(--blue-soft)}
+  .fcard.c2{background:#FEEDFA}
+  .fcard.c3{background:#F5F6F7}
+
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .step{background:#fff;border:1px solid var(--border);border-radius:20px;padding:28px 24px 32px;transition:box-shadow .2s ease,border-color .2s ease}
+  .step:hover{box-shadow:0 12px 28px rgba(6,28,61,0.12);border-color:transparent}
+  .step .n{width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+  .step h3{font-size:18px;font-weight:500;color:var(--ink-900);margin:0;line-height:1.3;transition:color .2s ease}
+  .step:hover h3{color:#007AFF}
+  .brands{display:flex;flex-wrap:wrap;gap:16px}
+  .brand{height:88px;min-width:200px;padding:0 36px;border:1px dashed #D9D9D9;border-radius:20px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:#757575}
+  @media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.steps{grid-template-columns:1fr}}
+  .chips{display:flex;flex-wrap:wrap;gap:16px}
+  .tool{display:inline-flex;align-items:center;gap:14px;padding:10px 24px 10px 10px;background:#fff;border:1px solid #E6E6E6;border-radius:999px;font-size:16px;font-weight:600;color:#061C3D;white-space:nowrap;box-shadow:0 2px 8px rgba(6,28,61,0.06);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease,border-color .25s ease}
+  .tool i{width:34px;height:34px;border-radius:50%;background:var(--c);background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 65%,#fff));color:#fff;font-style:normal;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .tool:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--c) 40%,#fff);box-shadow:0 14px 28px color-mix(in srgb,var(--c) 22%,transparent)}
+
+  section.contact{
+    padding:64px clamp(20px,5vw,64px);
+    display:flex;flex-direction:column;gap:20px;align-items:flex-start;
+    max-width:100%;margin:0 -64px -1px;
+    background:var(--bg);
+  }
+  .contact .tag{font-size:10px;font-weight:500;color:var(--gray);letter-spacing:0.5px;margin:0}
+  .contact .eyebrow2{font-size:12px;font-weight:600;color:var(--teal);letter-spacing:0.6px;margin:0}
+  .contact h2{font-size:28px;font-weight:700;color:var(--ink);margin:0;line-height:1.18}
+  .contact p{font-size:16px;color:var(--gray);line-height:1.5;max-width:760px;margin:0}
+
+  @media (max-width:720px){
+    nav{display:none}
+    .hero{flex-direction:column}
+    .cards-2,.cards-3{grid-template-columns:1fr}
+  }
+
+  /* artes: lo que construyo */
+  .builds{display:grid;grid-template-columns:repeat(3,minmax(0,250px));gap:40px 28px;justify-content:space-between}
+  .builds .bd3{display:flex;flex-direction:column;--k:2}
+  .builds .y{--art-bg:#F6CB56;--sh:#D4A92D;--tgc:#F6CB56}
+  .builds .pk{--art-bg:#EF789C;--sh:#C9577C;--tgc:#FF9EBD}
+  .builds .pu{--art-bg:#977CFA;--sh:#7A5FE0;--tgc:#977CFA}
+  .builds .art{position:relative;border-radius:36px;overflow:hidden;background:var(--art-bg);aspect-ratio:100/82;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease}
+  .builds .bd3:hover .art{transform:translateY(-4px);box-shadow:0 28px 56px rgba(6,28,61,.16)}
+  .builds .art-in{position:absolute;inset:0;container-type:inline-size}
+  .builds .ps{position:absolute;inset:0;--u:calc(1cqw*var(--k,1))}
+  .builds .pn{position:absolute;background:#fff;border:calc(var(--u)*.6) solid #0B1220;border-radius:calc(var(--u)*3.4);box-shadow:calc(var(--u)*1.7) calc(var(--u)*1.7) 0 var(--sh);overflow:hidden;color:#111}
+  .builds .fl{position:absolute;background:#fff;border:calc(var(--u)*.6) solid #0B1220;border-radius:calc(var(--u)*3);box-shadow:calc(var(--u)*1.4) calc(var(--u)*1.4) 0 var(--sh);color:#111;padding:calc(var(--u)*1.8) calc(var(--u)*2.4);transform:rotate(var(--r,0deg));transition:transform .45s cubic-bezier(.2,.8,.2,1);display:flex;align-items:center;justify-content:space-between;gap:calc(var(--u)*1.4);font-size:calc(var(--u)*2.6);font-weight:600;white-space:nowrap}
+  .builds .bd3:hover .fl{transform:rotate(calc(var(--r,0deg)*.4)) translateY(calc(var(--u)*-1.2))}
+  .builds .fl.dk{background:#2B1A5E;color:#FFD2C7;font:500 calc(var(--u)*2.4)/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;border-color:#0B1220}
+  .builds .tg{width:calc(var(--u)*7);height:calc(var(--u)*3.8);border-radius:99px;background:var(--tgc);position:relative;flex:0 0 auto;display:block}
+  .builds .tg::after{content:"";position:absolute;right:calc(var(--u)*.5);top:calc(var(--u)*.5);width:calc(var(--u)*2.8);height:calc(var(--u)*2.8);border-radius:50%;background:#fff}
+  .builds .hd{display:flex;align-items:center;gap:calc(var(--u)*1.6);padding:calc(var(--u)*2.4) calc(var(--u)*2.8);font-size:calc(var(--u)*3);font-weight:600}
+  .builds .hd .pill{margin-left:auto;background:#EFEFEF;border-radius:99px;font-size:calc(var(--u)*2.1);padding:calc(var(--u)*.4) calc(var(--u)*1.5);font-weight:600}
+  .builds .bars{display:flex;align-items:flex-end;gap:calc(var(--u)*2);padding:calc(var(--u)*1) calc(var(--u)*3) calc(var(--u)*3);height:calc(var(--u)*22)}
+  .builds .bars i{flex:1;border-radius:calc(var(--u)*1.2) calc(var(--u)*1.2) 0 0;background:#E9E9E9;display:block}
+  .builds .sw{display:grid;grid-template-columns:repeat(6,1fr);gap:calc(var(--u)*1.2);padding:calc(var(--u)*1) calc(var(--u)*2.8) calc(var(--u)*2)}
+  .builds .sw i{aspect-ratio:1;border-radius:calc(var(--u)*1.4);border:calc(var(--u)*.25) solid rgba(0,0,0,.1);display:block}
+  .builds .mono{font:500 calc(var(--u)*2.3)/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#555;padding:calc(var(--u)*.6) calc(var(--u)*2.8) 0}
+  .builds h3{font-size:18px;font-weight:700;letter-spacing:-0.02em;line-height:1.2;color:#061C3D;margin:18px 0 6px}
+  .builds p{font-size:14px;line-height:1.5;color:#42526B;margin:0}
+  @media (max-width:900px){.builds{grid-template-columns:minmax(0,280px);justify-content:start}.builds .bd3{--k:1.8}}
+  
+  
+
+  /* menú móvil */
+  .menu-btn{display:none;width:42px;height:42px;border:1px solid rgba(0,0,0,.08);background:rgba(255,255,255,.7);border-radius:12px;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0}
+  .menu-btn span{display:block;width:18px;height:2px;background:#061C3D;border-radius:2px;transition:transform .2s ease,opacity .2s ease}
+  header.open .menu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  header.open .menu-btn span:nth-child(2){opacity:0}
+  header.open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  @media (max-width:720px){
+    .menu-btn{display:flex}
+    header.open nav{display:flex;flex-direction:column;align-items:stretch;gap:2px;position:absolute;top:100%;left:12px;right:12px;margin-top:8px;padding:12px;background:rgba(255,255,255,.98);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid #E6E6E6;border-radius:20px;box-shadow:0 20px 48px rgba(6,28,61,.18)}
+    header.open nav a{display:block;padding:12px 14px;border-radius:12px;font-size:16px}
+    header.open nav a:hover{background:#F0F5FF}
+    header.open nav .cta-group{display:block;margin-top:6px}
+    header.open nav .btn-primary,header.open nav .btn-primary-nav{text-align:center;padding:12px 16px}
+  }
+
+  @media (max-width:900px){.builds{grid-template-columns:minmax(0,420px)}.builds .bd3{--k:1.3}}
+  @media (max-width:720px){.sec-title{font-size:28px}.card{padding:28px 24px}}
+  @media (max-width:560px){.step{display:flex;align-items:center;gap:16px;padding:20px 22px}.step .n{margin:0;flex:0 0 auto}}
+
+  /* footer */
+  .ft{margin-top:24px;padding:28px clamp(20px,5vw,64px);border-top:1px solid var(--border);position:relative;z-index:2}
+  .ft-in{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap;font-size:13px;color:#8A8F98}
+  .ft-l{display:flex;gap:24px;flex-wrap:wrap}
+  .ft-l a{color:#666;text-decoration:none;transition:color .15s ease}
+  .ft-l a:hover{color:var(--blue)}
+
+  .photo-stack{width:208px;height:208px}
+  .photo{width:100%;height:100%;border-radius:50%;overflow:hidden;box-shadow:0 0 0 6px rgba(255,255,255,.92),0 18px 40px rgba(6,28,61,.16)}
+  .photo img{width:100%;height:100%;object-fit:cover;display:block}
+  @media (max-width:720px){.photo-stack{width:150px;height:150px}}
+
+  /* marcas: carrusel continuo, todo en gris */
+  .marq{position:relative;overflow:hidden;margin-top:12px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%)}
+  .marq-track{display:flex;width:max-content;animation:marq 55s linear infinite;padding:14px 0}
+  .marq:hover .marq-track{animation-play-state:paused}
+  .grp{display:flex;align-items:center;gap:64px;padding-right:64px;flex:none}
+  .mk{display:flex;align-items:center;justify-content:center;height:60px;flex:none}
+  .mk img{height:var(--h,44px);width:auto;display:block;filter:grayscale(1) contrast(1.2) brightness(.9);opacity:.72;mix-blend-mode:multiply;transition:opacity .2s ease}
+  .mk:hover img{opacity:.95}
+  .mk.code span{display:inline-flex;align-items:center;height:42px;padding:0 22px;border:1.5px solid #BFC4CC;border-radius:999px;color:#8A8F98;font-weight:600;font-size:15px;white-space:nowrap;background:rgba(255,255,255,.55)}
+  @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (max-width:720px){.grp{gap:44px;padding-right:44px}.marq-track{animation-duration:45s}}
+  @media (prefers-reduced-motion:reduce){.marq{-webkit-mask-image:none;mask-image:none}.marq-track{animation:none;width:100%}.grp{flex:1 1 100%;flex-wrap:wrap;justify-content:center;gap:24px 44px;padding-right:0}.grp[aria-hidden="true"]{display:none}}
+
+  header nav a,header a.logo{position:relative}
+  header nav a::after,header a.logo::after{content:"";position:absolute;inset:-14px -8px}
+  header.open nav a::after{display:none}
+</style>
+<script>/* siempre abrir desde arriba */(function(){try{if('scrollRestoration' in history)history.scrollRestoration='manual';}catch(e){}function t(){window.scrollTo(0,0);}t();document.addEventListener('DOMContentLoaded',t);window.addEventListener('load',function(){t();setTimeout(t,80);});window.addEventListener('pageshow',function(e){if(e.persisted)t();});})();</script>
+<meta name="description" content="Perfil profesional de Eduardo Gama: liderazgo de equipo, IA aplicada al proceso y marco de decisiones.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDFWC65T"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<header>
+  <span class="logo">EG</span>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="#" class="active">Perfil</a>
+    <a href="casos-de-estudio.html">Casos de Estudio</a>
+    <a href="book.html">Book</a>
+    <a href="design-system.html">Design System</a>
+    <a href="cv.html">CV</a>
+    <div class="cta-group">
+      
+      <a href="contacto.html" class="btn-primary">Contacto</a>
+    </div>
+  </nav>
+<button class="menu-btn" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<div class="top-gradient"></div>
+
+<main>
+
+  <div class="hero">
+    <div class="photo-stack"><div class="photo"><img src="images/perfil/eduardo-gama-perfil.webp" alt="Eduardo Gama"></div></div>
+    <div class="hero-text">
+      <p class="eyebrow">EDUARDO GAMA · HEAD OF DESIGN</p>
+      <h1>Perfil profesional</h1>
+      <p><span class="lead">Head of Design y Product Design Lead con 9+ años</span> de experiencia construyendo productos digitales, especializado en Product Design, UX/UI, Design Systems y liderazgo de equipos. Experiencia transformando necesidades complejas de negocio en plataformas digitales escalables, desde Product Discovery, arquitectura de información y UX hasta dirección UI, Design Systems y handoff con Desarrollo. Construí el área UX/UI de mi trabajo actual desde cero y actualmente lidero un equipo de 6 diseñadores. He liderado productos y soluciones utilizadas por más de 10 clientes.</p>
+    </div>
+  </div>
+
+  <section style="position:relative">
+    <span class="float-icon" style="width:40px;height:40px;right:8%;top:-10px"><img src="images/iconos/icono-05.svg" alt=""></span>
+    <p class="sec-eyebrow">Liderazgo y equipo</p>
+    <h2 class="sec-title">Cómo construí el área de UX/UI desde cero.</h2>
+    <p class="sec-sub">Creé el área UX/UI, la operé bajo EOS y la escalé mediante procesos documentados, DesignOps e IA aplicada.</p>
+    <div class="cards-2">
+      <div class="card">
+        <h3>Design Thinking</h3>
+        <p>Entiendo el problema de negocio antes de proponer solución — así nació la estructura por niveles de la plataforma.</p>
+      </div>
+      <div class="card">
+        <h3>DesignOps</h3>
+        <p>Documentación, Design Hub y procesos que hacen que el equipo escale sin que el caos escale con él.</p>
+      </div>
+      <div class="card">
+        <h3>EOS</h3>
+        <p>Reuniones semanales L10 y Rocas trimestrales que mantienen al equipo enfocado y alineado con el negocio.</p>
+      </div>
+      <div class="card">
+        <h3>UX Jam</h3>
+        <p>Sesión quincenal donde testeamos con usuarios reales, presentamos producto a otras áreas y recogemos sus ideas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-eyebrow">Adopción de IA</p>
+    <h2 class="sec-title">La IA como aliada de mi proceso de trabajo</h2>
+    <p class="sec-sub">Introduje ChatGPT, Claude y Gemini al flujo del equipo para reducir el tiempo de diseño y estandarizar cómo trabajamos.</p>
+    <div class="cards-3">
+      <div class="card">
+        <h3>Documentación</h3>
+        <p>Mejor calidad en la documentación del equipo.</p>
+      </div>
+      <div class="card">
+        <h3>Procesos</h3>
+        <p>Estandarización del proceso en todo el equipo.</p>
+      </div>
+      <div class="card">
+        <h3>Propuestas</h3>
+        <p>Generación de propuestas más rápida.</p>
+      </div>
+    </div>
+    <div class="chips" style="margin-top:32px">
+      <span class="tool" style="--c:#0ABA5C"><i>C</i>ChatGPT</span>
+      <span class="tool" style="--c:#E5540B"><i>C</i>Claude</span>
+      <span class="tool" style="--c:#0B63E5"><i>G</i>Gemini</span>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-eyebrow">Marco de decisiones</p>
+    <h2 class="sec-title">5 pasos fundamentales para las decisiones</h2>
+    <p class="sec-sub">Cada decisión significativa pasa por los mismos 5 pasos, siempre en este orden.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Valor para el negocio</h3></div>
+      <div class="step"><div class="n">2</div><h3>Valor para el usuario</h3></div>
+      <div class="step"><div class="n">3</div><h3>Esfuerzo técnico</h3></div>
+      <div class="step"><div class="n">4</div><h3>Tiempo de implementación</h3></div>
+      <div class="step"><div class="n">5</div><h3>Impacto esperado</h3></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-eyebrow">Lo que construyo</p>
+    <h2 class="sec-title">Productos, equipos y los sistemas que los conectan</h2>
+    <p class="sec-sub">Convirtiendo oportunidades de negocio en productos digitales escalables.</p>
+    <div class="builds">
+      <div class="bd3 y">
+        <div class="art"><div class="art-in"><div class="ps">
+          <div class="pn" style="left:12%;top:10%;width:76%;height:64%">
+            <div class="hd">Oportunidades<span class="pill">+</span></div>
+            <div class="bars"><i style="height:30%"></i><i style="height:46%"></i><i style="height:38%"></i><i style="height:68%"></i><i style="height:100%;background:#F6CB56"></i></div>
+          </div>
+          <div class="fl " style="left:26%;top:70%;width:68%;--r:4deg"><span>Negocio → Producto</span></div>
+        </div></div></div>
+        <h3>Estrategia de producto</h3>
+        <p>Convirtiendo oportunidades de negocio en productos digitales escalables.</p>
+      </div>
+      <div class="bd3 pk">
+        <div class="art"><div class="art-in"><div class="ps">
+          <div class="fl " style="left:8%;top:11%;width:58%;--r:-5deg"><span>Basic</span><i class="tg"></i></div>
+          <div class="fl " style="left:32%;top:38%;width:58%;--r:3deg"><span>Plus</span><i class="tg"></i></div>
+          <div class="fl " style="left:10%;top:65%;width:58%;--r:-3deg"><span>Pro</span><i class="tg"></i></div>
+        </div></div></div>
+        <h3>Plataformas modulares</h3>
+        <p>Diseñando plataformas configurables que evolucionan mediante capacidades en lugar de desarrollo a la medida.</p>
+      </div>
+      <div class="bd3 pu">
+        <div class="art"><div class="art-in"><div class="ps">
+          <div class="pn" style="left:10%;top:12%;width:80%;height:56%">
+            <div class="hd">Prisma<span class="pill">v1.8.0</span></div>
+            <div class="sw"><i style="background:#FFF6F5"></i><i style="background:#FFC6BE"></i><i style="background:#FF8677"></i><i style="background:#FF6C55"></i><i style="background:#CC5643"></i><i style="background:#822F26"></i></div>
+            <div class="mono">orange-500 · #FF6C55</div>
+          </div>
+          <div class="fl dk" style="left:30%;top:66%;width:64%;--r:4deg"><span>"$value": "#FF6C55"</span></div>
+        </div></div></div>
+        <h3>Sistemas de diseño</h3>
+        <p>Creando consistencia que escala a través de productos y organizaciones.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-eyebrow">Herramientas</p>
+    <h2 class="sec-title">El stack detrás de cada entrega</h2>
+    <p class="sec-sub">De research a handoff, las herramientas que uso todos los días.</p>
+    <div class="chips">
+      <span class="tool" style="--c:#0B63E5"><i>F</i>Figma</span>
+      <span class="tool" style="--c:#E50B5B"><i>F</i>FigJam</span>
+      <span class="tool" style="--c:#E5540B"><i>A</i>Adobe</span>
+      <span class="tool" style="--c:#0ABA5C"><i>M</i>Maze</span>
+      <span class="tool" style="--c:#E50BBD"><i>H</i>Hotjar</span>
+      <span class="tool" style="--c:#C40BE5"><i>A</i>Analytics</span>
+      <span class="tool" style="--c:#5D06C8"><i>&lt;/&gt;</i>HTML/CSS</span>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-eyebrow">Marcas</p>
+    <h2 class="sec-title">Marcas con las que he trabajado</h2>
+    <p class="sec-sub">Plataformas y soluciones digitales, en colaboración cercana con tecnología, producto, ventas y marketing.</p>
+    <div class="marq" role="region" aria-label="Marcas con las que he trabajado"><div class="marq-track"><div class="grp"><div class="mk"><img src="images/perfil/marcas/bbva.webp" alt="BBVA" style="--h:38px"></div><div class="mk"><img src="images/perfil/marcas/bmw.webp" alt="BMW" style="--h:54px"></div><div class="mk"><img src="images/perfil/marcas/diageo.webp" alt="Diageo" style="--h:30px"></div><div class="mk"><img src="images/perfil/marcas/mars.webp" alt="Mars" style="--h:38px"></div><div class="mk"><img src="images/perfil/marcas/ford.webp" alt="Ford" style="--h:38px"></div><div class="mk"><img src="images/perfil/marcas/santander.webp.svg.webp" alt="Santander" style="--h:38px"></div><div class="mk"><img src="images/perfil/marcas/grupo-modelo.webp" alt="Grupo Modelo" style="--h:54px"></div><div class="mk"><img src="images/perfil/marcas/gnp.webp" alt="GNP Seguros" style="--h:38px"></div><div class="mk"><img src="images/perfil/marcas/bacardi.webp" alt="Bacardi" style="--h:44px"></div><div class="mk"><img src="images/perfil/marcas/volvo.webp.webp" alt="Volvo" style="--h:30px"></div><div class="mk"><img src="images/perfil/marcas/3m.webp" alt="3M" style="--h:44px"></div><div class="mk"><img src="images/perfil/marcas/beam-suntory.webp" alt="Beam Suntory" style="--h:30px"></div><div class="mk"><img src="images/perfil/marcas/brp.webp" alt="BRP" style="--h:54px"></div><div class="mk"><img src="images/perfil/marcas/brown-forman.webp" alt="Brown-Forman" style="--h:38px"></div><div class="mk"><img src="images/perfil/marcas/casa-pedro-domecq.webp" alt="Casa Pedro Domecq" style="--h:30px"></div></div><div class="grp" aria-hidden="true"><div class="mk"><img src="images/perfil/marcas/bbva.webp" alt="" style="--h:38px"></div><div class="mk"><img src="images/perfil/marcas/bmw.webp" alt="" style="--h:54px"></div><div class="mk"><img src="images/perfil/marcas/diageo.webp" alt="" style="--h:30px"></div><div class="mk"><img src="images/perfil/marcas/mars.webp" alt="" style="--h:38px"></div><div class="mk"><img src="images/perfil/marcas/ford.webp" alt="" style="--h:38px"></div><div class="mk"><img src="images/perfil/marcas/santander.webp" alt="" style="--h:38px"></div><div class="mk"><img src="images/perfil/marcas/grupo-modelo.webp" alt="" style="--h:54px"></div><div class="mk"><img src="images/perfil/marcas/gnp.webp" alt="" style="--h:38px"></div><div class="mk"><img src="images/perfil/marcas/bacardi.webp" alt="" style="--h:44px"></div><div class="mk"><img src="images/perfil/marcas/volvo.webp" alt="" style="--h:30px"></div><div class="mk"><img src="images/perfil/marcas/3m.webp" alt="" style="--h:44px"></div><div class="mk"><img src="images/perfil/marcas/beam-suntory.webp" alt="" style="--h:30px"></div><div class="mk"><img src="images/perfil/marcas/brp.webp" alt="" style="--h:54px"></div><div class="mk"><img src="images/perfil/marcas/brown-forman.webp" alt="" style="--h:38px"></div><div class="mk"><img src="images/perfil/marcas/casa-pedro-domecq.webp" alt="" style="--h:30px"></div></div></div></div>
+  </section>
+
+</main>
+
+<footer class="ft">
+  <div class="ft-in">
+    <span>© 2026 Eduardo Gama</span>
+    <div class="ft-l">
+      <a href="perfil.html">Perfil</a>
+      <a href="casos-de-estudio.html">Casos de estudio</a>
+      <a href="book.html">Book</a>
+      <a href="design-system.html">Design System</a>
+      <a href="cv.html">CV</a>
+      <a href="https://www.linkedin.com/in/eduardo-gama" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>(function(){var h=document.querySelector('header'),b=h&&h.querySelector('.menu-btn');if(!b)return;b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttribute('aria-expanded',o);});h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');b.setAttribute('aria-expanded','false');});});document.addEventListener('keydown',function(e){if(e.key==='Escape'){h.classList.remove('open');}});})();</script>
+</body>
+</html>

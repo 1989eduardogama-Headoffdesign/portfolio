@@ -1,0 +1,16 @@
+# sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+# editores
+.vscode/
+.idea/
+*.swp
+# dependencias y builds (por si se agregan herramientas más adelante)
+node_modules/
+dist/
+# material de trabajo que NUNCA debe subirse
+_sin-editar/
+originales/
+*.zip
+NOTAS-INTERNAS*
